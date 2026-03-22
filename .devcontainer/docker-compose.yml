@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+    command: sleep infinity
+
+    network_mode: service:db
+
+  db:
+    image: mariadb:5.5
+    restart: unless-stopped
+    volumes:
+      - ict-data:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: mariadb
+
+volumes:
+  ict-data:
