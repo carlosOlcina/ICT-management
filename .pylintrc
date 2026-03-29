@@ -1,0 +1,46 @@
+[MASTER]
+# Directorios y archivos a ignorar
+ignore=venv,migrations,__pycache__
+ignore-patterns=test_.*\.py
+init-hook='import sys; sys.path.append("src")'
+
+load-plugins=pylint_flask
+
+max-parents=5
+
+[MESSAGES CONTROL]
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    C0116,  # missing-function-docstring
+    R0903,  # too-few-public-methods
+    R0201,  # method could be static
+    W0511,  # TODO/FIXME comments
+    R0801,  # duplicate-code
+    W0611,  # unused-import
+    W0613,  # unused-argument
+
+[FORMAT]
+max-line-length=88
+indent-string='  '
+good-names=i,j,k,ex,Run,db,app
+
+[DESIGN]
+# Complejidad máxima de funciones/métodos
+max-args=10
+max-locals=20
+max-returns=6
+max-branches=12
+max-statements=50
+max-parents=7
+max-attributes=10
+min-public-methods=0
+max-public-methods=20
+
+[TYPECHECK]
+ignored-modules=flask,flask_sqlalchemy,flask_migrate,flask_login
+ignored-classes=SQLAlchemy,Flask,LoginManager
+
+[REPORTS]
+reports=no
+score=no
