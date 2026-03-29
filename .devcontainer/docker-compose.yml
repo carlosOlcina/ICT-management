@@ -1,5 +1,5 @@
 version: '3.8'
-
+name: ict-management
 services:
   app:
     build:
@@ -11,12 +11,17 @@ services:
     network_mode: service:db
 
   db:
-    image: mariadb:5.5
+    image: mariadb:10.6
     restart: unless-stopped
+    ports:
+      - "3306:3306"
     volumes:
       - ict-data:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: mariadb
+      MARIADB_DATABASE: mariadb
+      MARIADB_USER: mariadb
+      MARIADB_PASSWORD: mariadb
 
 volumes:
   ict-data:
