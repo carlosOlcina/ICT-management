@@ -1,5 +1,5 @@
 import uuid
-from extensions import db
+from src.extensions import db
 
 class User(db.Model):
   __tablename__ = 'users'

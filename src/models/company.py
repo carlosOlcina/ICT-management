@@ -1,5 +1,5 @@
 import uuid
-from extensions import db
+from src.extensions import db
 
 class Company(db.Model):
   __tablename__ = 'companies'

@@ -1,5 +1,5 @@
 from .user import User
 from .company import Company
-# from .equipment import Equipment
+from .equipment import Equipment
 
-__all__ = ["User", "Company"]
+__all__ = ["User", "Company", "Equipment"]
