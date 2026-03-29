@@ -7,8 +7,8 @@ PROJECT_DIR = Path(__file__).resolve().parent
 def create_app():
     app = Flask(
         __name__,
-        template_folder=str(PROJECT_DIR / "src" / "templates"),
-        static_folder=str(PROJECT_DIR / "src" / "static"),
+        template_folder=str(PROJECT_DIR / "templates"),
+        static_folder=str(PROJECT_DIR / "static"),
     )
 
     # Configuración
@@ -21,7 +21,8 @@ def create_app():
     from src.controllers.auth import auth_bp
     app.register_blueprint(auth_bp)
 
-    import models
+    # Registrar modelos
+    from src.models import User, Company
 
     return app
 
