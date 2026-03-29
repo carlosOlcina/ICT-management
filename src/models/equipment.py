@@ -1,5 +1,5 @@
 import uuid
-from extensions import db
+from src.extensions import db
 
 class Equipment(db.Model):
   __tablename__ = 'equipments'
@@ -26,7 +26,16 @@ class Equipment(db.Model):
   )
 
   type = db.Column(
-    db.Enum('laptop', 'desktop', 'server', 'tablet', 'smartphone', 'printer', 'camera', 'other'),
+    db.Enum(
+      'laptop',
+      'desktop',
+      'server',
+      'tablet',
+      'smartphone',
+      'printer',
+      'camera',
+      'other'
+    ),
     nullable=False
   )
 
